@@ -1,0 +1,10 @@
+#root {
+    width: auto;
+    overflow-x: hidden;
+  }
+
+.price {
+  margin-bottom: 0;
+  color: #840032;
+  font-weight: bold;
+}
