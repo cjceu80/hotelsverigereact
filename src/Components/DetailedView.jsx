@@ -92,18 +92,18 @@ const DetailedView = () => {
 
                 {/* Form to submit to booking */}
                 <Form method="post">
-                    <div className="detailedViewBottomWrapper">
-                        <div className="roomOptionsWrapper">
+                    <Row>
+                        <Col sm={8}>
                             {/* List rooms with price and selector */}
                             
                             {hotel.roomoptions.map((room) => (
                                 <RoomSelector room={room} key={room.name} />
                             ))}
                             
-                        </div>
+                        </Col>
 
                         {/* Personal information form */}
-                        <div className="bookingFormWrapper">
+                        <Col>
                             <div className="personalDetailsForm">
                             <label>Förnamn</label>
                             <input type="text" name="firstname" onChange={(e) => setFormFirstName(e.target.getAttribute("value"))}></input>
@@ -125,8 +125,8 @@ const DetailedView = () => {
                             {(errorState) ? <p className="errorText" key="error">Fyll i alla fält för uppgifter</p> : null}
                             <input className="bookButton" type="submit" value="Boka" onClick={(e) => handleSubmit(e)} ></input>
                             </div>
-                        </div>
-                    </div>
+                        </Col>
+                    </Row>
                 </Form>
 
             </Card>
