@@ -1,7 +1,7 @@
 import React from 'react';
 
 //Render a room name and count
-const RoomReceipt = (props) => {
+export default function RoomReceipt(props) {
     //Get number of rooms by using room name as key in bookingInfo prop
     const roomCount = props.bookingInfo[props.hotelRoom.name];
     //return null if no rooms are selected of this type
@@ -9,8 +9,6 @@ const RoomReceipt = (props) => {
       return;
 
     return (
-        <p>{props.hotelRoom.name} x{roomCount} </p>
+        <p className='ps-2'>{props.hotelRoom.name} x{roomCount} </p>
     )
 }
-
-export default RoomReceipt;

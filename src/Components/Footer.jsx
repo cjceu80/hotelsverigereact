@@ -4,7 +4,7 @@ import { Col, Container, Nav, Row } from 'react-bootstrap';
 //Render page footer
 export default function Footer() {
     return (
-        <Container className='border'>
+        <Container className='mt-3 pt-3'>
             <Row>
                 <Col>
                     <h4>Populära destinationer</h4>

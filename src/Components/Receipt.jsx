@@ -2,6 +2,7 @@ import { getHotel } from '../hotellData'
 import PrintButton from './PrintButton.jsx';
 import { useLoaderData } from 'react-router-dom';
 import { isJSONString } from './SearchResults'
+import { Card, Col, Container, Row } from 'react-bootstrap';
 
 //Loader to handle params
 export function loader({ params }){
@@ -75,13 +76,16 @@ const Receipt = () => {
       }
 
     return (
-        <div className="mainContent">
-            <div className="receiptWrapper">
-            <div className="receiptInnerWrapper">
-                <div className="receiptTop">
+        <Container>
+            <Card className="p-3" style={{boxShadow: "4px 4px 15px #000"}}>
+                <Row>
+                    <Col>
                     <h1>Orderbekräftelse</h1>
+                    </Col>
+                    <Col sm={2}>
                     <PrintButton />
-                </div>
+                    </Col>
+                </Row>
                 <h2>Betalningen för din resa lyckades.</h2>
                 <p>Din vistelse vid {loaderData.hotel.name} i {loaderData.hotel.city} den {handleDates} är nu bekräftad.</p>
                 
@@ -93,28 +97,21 @@ const Receipt = () => {
                 </div>
                 <div className="receiptDetailsWrapper">
                     <div className="receiptBookingDetails">
-                        
-                        <div className="blueBar">
-                            <p className="whiteDetails">Bokningsdetaljer</p>
-                        </div>
+                            <h5>Bokningsdetaljer</h5>
                         <p>Ordernummer: 12KJNDASPO23</p>
                         <p>Namn: {loaderData.info.firstname} {loaderData.info.lastname}</p>
                         {getCheckInOutDateString(loaderData.dates)}
                         <p>Pris: {getPrice()} kr</p>
                     </div>
                     <div className="receiptPolicyDetails">
-                        
-                        <div className="blueBar">
-                            <p className="whiteDetails">Policyer</p>
-                        </div>
+                            <h5>Policyer</h5>
                         <p>Checkin tid: 12:00</p>
                         <p>Utcheckning tid: 10:00</p>
                         <p>Avbokning: För att avboka krävs att du kontaktar hotellet senast kl 12:00 dagen innan incheckning.</p>
                     </div>
                 </div>
-                </div>
-            </div>
-        </div>
+                </Card>
+        </Container>
     );
 };
 

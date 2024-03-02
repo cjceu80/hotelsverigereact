@@ -3,6 +3,7 @@ import { Form, redirect, useLoaderData, NavLink, useNavigate } from 'react-route
 import { getHotel } from '../hotellData';
 import RoomReceipt from './RoomReceipt';
 import { handleDates } from './SearchResults';
+import { Breadcrumb, Button, Card, Col, Container, Row } from "react-bootstrap";
  
 //Submit action to continue to receipt if payment is accepted
 export function action( { params }){
@@ -26,7 +27,7 @@ export function loader({ params }){
 }
 
 //Render the payment confirmation view
-const Payment = () => {
+export default function Payment() {
   const loaderData= useLoaderData();
   const navigate = useNavigate();
 
@@ -57,19 +58,15 @@ const Payment = () => {
 
   return (
   
-    <div className="mainContent">
-      <div className="navWrapper">
-            <span onClick={() => navigate(-1)} className="navigationLink">← Tillbaka till sökresultat</span>
-            </div>
-      <div className="paymentDetailsWrapper">
+    <Container>
+
+    <Breadcrumb role='button' onClick={() => navigate(-1)} className="navigationLink">← Tillbaka till sökresultat</Breadcrumb>
+    <Card className="p-3" style={{boxShadow: "4px 4px 15px #000"}}>
         <h1>Betalning</h1>
-        <div className="paymentDetailsH2Title">
           <h2>Stämmer dina uppgifter?</h2>
-        </div>
         
-        <div className="paymentDetailsInnerWrapper">
-        
-          <div className="paymentPersonalDetails">
+        <Row>
+          <Col>
             <p>Förnamn: {loaderData.info.firstname}</p> 
             <p>Efternamn: {loaderData.info.lastname}</p>
             <p>Adress: {loaderData.info.adress}</p>
@@ -77,27 +74,24 @@ const Payment = () => {
             <p>Postnummer: {loaderData.info.code}</p>
             <p>E-post: {loaderData.info.email}</p>
             <p>Telefon: {loaderData.info.phone}</p>
-          </div>
-          <div className="paymentBookingDetails">
+          </Col>
+          <Col>
             <p>Hotel: {loaderData.hotel.name}</p> 
-            <p>Rum: {getTotalBeds()} st 
+            <p>Rum: {getTotalBeds()} st </p>
               {/* List hotel rooms */}
             {loaderData.hotel.roomoptions.map((room)=><RoomReceipt hotelRoom={room} bookingInfo={loaderData.info} key={room.name}/>)}
-            </p>
+            
             <p>Incheckning: {handleDates(loaderData.dates)[0]}</p>
             <p>Utcheckning: {handleDates(loaderData.dates)[1]}</p>
-            <p></p>
             <p>Pris: {getPrice(loaderData.dates)} kr</p>
             
-          </div>
-        </div>
+          </Col>
+        </Row>
         <Form method="post" className="paymentButtonWrapper">
-          <input className="standardButton" value="Betala" type="submit" />
+          <Button className="standardButton" type="submit">Betala</Button>
         </Form>
-      </div>
-    </div>
+      </Card>
+      </Container>
     
   )
 };
-
-export default Payment;

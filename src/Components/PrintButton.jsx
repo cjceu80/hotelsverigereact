@@ -2,10 +2,10 @@ import print from '../assets/print.png';
 
 const PrintButton = () => {
     return (
-        <div className="printButtonWrapper">
-            <img src={print}></img>
+        <>
+            <img width={60} src="/src/assets/print.png"></img>
             <h3>Skriv ut</h3>
-        </div>
+        </>
     );
 };
 

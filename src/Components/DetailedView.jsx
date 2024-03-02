@@ -1,4 +1,3 @@
-
 import { Form, redirect, useLoaderData } from 'react-router-dom';
 import { getHotel } from '../hotellData';
 import { useState } from 'react';
@@ -6,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import RoomSelector from './RoomSelector';
 import Attribute from './Attribute.jsx';
 import StarRating from './StarRating.jsx';
-import { Breadcrumb, Button, Card, Col, Container, Row } from 'react-bootstrap';
+import { Breadcrumb, Button, Card, Col, Container, Row, Form as BForm } from 'react-bootstrap';
 
 //Action for post method
 export async function action({ request, params }) {
@@ -22,7 +21,7 @@ export async function loader({params}){
 }
 
 //Render the detailed view where form for rooms and personal information is entered to proceed with booking.
-const DetailedView = () => {
+export default function DetailedView() {
     const loaderData = useLoaderData();
     const navigate = useNavigate();
     const [errorState, setErrorState] = useState(false);
@@ -104,27 +103,27 @@ const DetailedView = () => {
 
                         {/* Personal information form */}
                         <Col>
-                            <div className="personalDetailsForm">
-                            <label>Förnamn</label>
-                            <input type="text" name="firstname" onChange={(e) => setFormFirstName(e.target.getAttribute("value"))}></input>
-                            <label>Efternamn</label>
-                            <input type="text" name="lastname" onChange={(e) => setFormLastName(e.target.getAttribute("value"))}></input>
-                            <label>Adress</label>
-                            <input type="text" name="adress" onChange={(e) => setFormAddress(e.target.getAttribute("value"))}></input>
-                            <label>Stad</label>
-                            <input type="text" name="code" onChange={(e) => setFormCode(e.target.getAttribute("value"))}></input>
-                            <label>Postnummer</label>
-                            <input type="text" name="city" onChange={(e) => setFormCity(e.target.getAttribute("value"))}></input>
-                            <label>E-post</label>
-                            <input type="email" name="email" onChange={(e) => setFormEmail(e.target.getAttribute("value"))}></input>
-                            <label>Telefon</label>
-                            <input type="text" name="phone" onChange={(e) => setFormPhone(e.target.getAttribute("value"))}></input>
-                            <label>Övrig information till hotellet:</label>
-                            <textarea form="bookingForm" type="text" name="info" onChange={(e) => setFormInfo(e.target.getAttribute("value"))}></textarea>
+                            <Row>
+                            <BForm.Label>Förnamn</BForm.Label>
+                            <BForm.Control type="text" name="firstname" onChange={(e) => setFormFirstName(e.target.getAttribute("value"))}/>
+                            <BForm.Label>Efternamn</BForm.Label>
+                            <BForm.Control type="text" name="lastname" onChange={(e) => setFormLastName(e.target.getAttribute("value"))}/>
+                            <BForm.Label>Adress</BForm.Label>
+                            <BForm.Control type="text" name="adress" onChange={(e) => setFormAddress(e.target.getAttribute("value"))}/>
+                            <BForm.Label>Stad</BForm.Label>
+                            <BForm.Control type="text" name="code" onChange={(e) => setFormCode(e.target.getAttribute("value"))}/>
+                            <BForm.Label>Postnummer</BForm.Label>
+                            <BForm.Control type="text" name="city" onChange={(e) => setFormCity(e.target.getAttribute("value"))}/>
+                            <BForm.Label>E-post</BForm.Label>
+                            <BForm.Control type="email" name="email" onChange={(e) => setFormEmail(e.target.getAttribute("value"))}/>
+                            <BForm.Label>Telefon</BForm.Label>
+                            <BForm.Control type="text" name="phone" onChange={(e) => setFormPhone(e.target.getAttribute("value"))}/>
+                            <BForm.Label>Övrig information till hotellet:</BForm.Label>
+                            <BForm.Control as="textarea" rows={3} name="info" onChange={(e) => setFormInfo(e.target.getAttribute("value"))}/>
                             {/* If error due to incomplete form this will be shown. */}
-                            {(errorState) ? <p className="errorText" key="error">Fyll i alla fält för uppgifter</p> : null}
-                            <input className="bookButton" type="submit" value="Boka" onClick={(e) => handleSubmit(e)} ></input>
-                            </div>
+                            {(errorState) ? <p key="error">Fyll i alla fält för uppgifter</p> : null}
+                            <Button className="bookButton" type="submit" onClick={(e) => handleSubmit(e)}>Boka</Button> 
+                            </Row>
                         </Col>
                     </Row>
                 </Form>
@@ -133,5 +132,3 @@ const DetailedView = () => {
         </Container>
     );
 };
-
-export default DetailedView;
