@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Attribute from './Attribute.jsx';
 import StarRating from './StarRating.jsx';
 import { Button, Card, Col, Row } from 'react-bootstrap';
@@ -16,7 +16,6 @@ export default function SearchResultCard(props) {
 
     //States that are used to toggle between different CSS classes
     //Used to expand the hotel card into a big or small version
-    const [expanded, setExpanded] = useState('');
     const [isExpanded, setIsExpanded] = useState(false);
 
 

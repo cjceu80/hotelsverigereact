@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import { Container, Row, Col, Button, Form } from "react-bootstrap";
+import { Row, Col, Button, Form } from "react-bootstrap";
 
 
 //Component for the search bar
@@ -38,7 +38,7 @@ export default function SearchBar() {
 
         
 
-        <Form
+        <Form className="mb-3"
             onSubmit={handleSubmit}>
             {/* Destination input field */}
             <Row>

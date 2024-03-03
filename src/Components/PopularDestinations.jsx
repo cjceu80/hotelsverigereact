@@ -1,6 +1,6 @@
 
 import { Container, Row, Col, Card } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 //Return a stingified dates object for todays date to prevent date errors when popular destinations are selected.
 function getStartingDate(){

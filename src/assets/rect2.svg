@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="32.489902"
+   height="32.015285"
+   viewBox="0 0 8.5962865 8.470711"
+   version="1.1"
+   id="svg1"
+   inkscape:export-filename="minussign.svg"
+   inkscape:export-xdpi="123.60762"
+   inkscape:export-ydpi="123.60762"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#002642"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     inkscape:export-bgcolor="#002642ff" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0.29681737,0.23973709)">
+    <rect
+       style="display:inline;fill:#002642;fill-opacity:1;stroke-width:0.264583"
+       id="rect2"
+       width="8.5962868"
+       height="8.4707108"
+       x="-0.29681736"
+       y="-0.23973709"
+       rx="0.10578022"
+       ry="0.10314126" />
+    <rect
+       style="display:inline;fill:#ffffff;fill-opacity:1;stroke-width:0.264583"
+       id="rect1"
+       width="6.8791666"
+       height="1.0583333"
+       x="0.52916664"
+       y="3.4395833"
+       rx="0.10583334"
+       ry="0.10583334" />
+  </g>
+</svg>

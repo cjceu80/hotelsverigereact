@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "./App.scss"
 import SearchIndex, { loader as defaultLoader } from './Components/SearchIndex';
 import DetailedView, { loader as detailLoader, action as detailAction } from './Components/DetailedView';
 import Payment, {loader as paymentLoader, action as paymentAction } from './Components/Payment';

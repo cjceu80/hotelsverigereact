@@ -4,7 +4,6 @@ import { getHotels } from '../hotellData.js';
 import SearchBar from './SearchBar.jsx';
 import SearchResults from './SearchResults.jsx';
 import PopularDestinations from './PopularDestinations.jsx';
-import { Container } from 'react-bootstrap';
 
 //Loader for component. Using async and await even though using a pretend backend insted of pull.
 export async function loader({request}){

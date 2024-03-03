@@ -1,6 +1,7 @@
 #root {
     width: auto;
     overflow-x: hidden;
+    background-color: #F3F3F3;
   }
 
 .price {
@@ -8,3 +9,8 @@
   color: #840032;
   font-weight: bold;
 }
+
+#nav-dropdown{
+    color: whitesmoke;
+}
+

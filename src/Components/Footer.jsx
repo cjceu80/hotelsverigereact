@@ -4,17 +4,18 @@ import { Col, Container, Nav, Row } from 'react-bootstrap';
 //Render page footer
 export default function Footer() {
     return (
-        <Container className='mt-3 pt-3'>
+        <div className='bg-primary'>
+        <Container className='mt-3 pt-3' style={{color: "whitesmoke"}}>
             <Row>
                 <Col>
-                    <h4>Populära destinationer</h4>
+                    <h5>Populära destinationer</h5>
                 </Col>
                 <Col>
-                    <h4>Support och vanliga frågor</h4>
+                    <h5>Support och vanliga frågor</h5>
 
                 </Col>
                 <Col className='align-content-center'>
-                    <h4>Policyer</h4>
+                    <h5>Policyer</h5>
  
                 </Col>
             </Row>
@@ -43,5 +44,6 @@ export default function Footer() {
                 </Col>
             </Row>
         </Container>
+        </div>
     )
 }

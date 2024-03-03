@@ -102,7 +102,8 @@ export default function DetailedView() {
                         </Col>
 
                         {/* Personal information form */}
-                        <Col>
+                        <Col className='p-3 bg-primary text-secondary'>
+                            <Container>
                             <Row>
                             <BForm.Label>Förnamn</BForm.Label>
                             <BForm.Control type="text" name="firstname" onChange={(e) => setFormFirstName(e.target.getAttribute("value"))}/>
@@ -122,8 +123,9 @@ export default function DetailedView() {
                             <BForm.Control as="textarea" rows={3} name="info" onChange={(e) => setFormInfo(e.target.getAttribute("value"))}/>
                             {/* If error due to incomplete form this will be shown. */}
                             {(errorState) ? <p key="error">Fyll i alla fält för uppgifter</p> : null}
-                            <Button className="bookButton" type="submit" onClick={(e) => handleSubmit(e)}>Boka</Button> 
+                            <Button className="bookButton border-secondary my-3" type="submit" onClick={(e) => handleSubmit(e)}>Boka</Button> 
                             </Row>
+                            </Container>
                         </Col>
                     </Row>
                 </Form>
