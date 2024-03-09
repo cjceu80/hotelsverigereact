@@ -14,10 +14,8 @@ export default function SearchResultCard(props) {
 
     const navigate = useNavigate();
 
-    //States that are used to toggle between different CSS classes
     //Used to expand the hotel card into a big or small version
     const [isExpanded, setIsExpanded] = useState(false);
-
 
 
     return (
@@ -46,8 +44,7 @@ export default function SearchResultCard(props) {
                                     <Row className='py-2'>
                                     {hotel.features.map((feature)=>(
                                         <Attribute xs={12} sm={6} roomFeature={feature} key={feature} />
-
-                                     ))}
+                                    ))}
                                     </Row>
                                 </Col>
                                 <Col className='h-100 align-items-bottom'>
@@ -75,29 +72,27 @@ export default function SearchResultCard(props) {
                             </Row>
                             
                             {isExpanded && 
-                        <Row>
-                            <Col className='text-start'>
-                                <p>{hotel.description}</p>
-                                <h4>Restaurang</h4>
-                                <p>{hotel.restaurant}</p>
-                                <h4>Rumsbokning</h4>
-                                <p>{hotel.booking}</p>
-                            </Col>
-                        </Row>}
+                                <Row>
+                                    <Col className='text-start'>
+                                        <p>{hotel.description}</p>
+                                        <h4>Restaurang</h4>
+                                        <p>{hotel.restaurant}</p>
+                                        <h4>Rumsbokning</h4>
+                                        <p>{hotel.booking}</p>
+                                    </Col>
+                                </Row>
+                            }
                         </Col>
                     </Row>
                     
                     <Row>
-                        <Col role='button' onClick={() => {const current = isExpanded; setIsExpanded(!current);}} >
-                            
+                        <Col role='button' onClick={() => {const current = isExpanded; setIsExpanded(!current);}} >                          
                             <img src="src/assets/arrowdown_black.png" width={30} height={10} alt="" />
                         </Col>
                         
                     </Row>
                 </Card>
             </Col>
-    
-        </Row>
-        
+        </Row>   
     );
 };
