@@ -20,31 +20,31 @@ export default function PopularDestinations() {
             <Row className='my-2'>
                 <Col sm={6} lg={{span: 4, offset: 2}}>
                     <Card role="button" style={{maxWidth: 300}} className="my-2 " onClick={() => navigate(`?l=stockholm&d=${getStartingDate()}`)} >
-                        <img src='src/assets/stockholm.png' />
-                       
+                        <img src='src/assets/stockholm.png' alt='Stockholm'/>
+                        <span className='position-absolute ms-2 overlayName'>Stockholm</span>
                     </Card>
 
                 </Col>
                 <Col sm={6} lg={4}>
                     <Card role="button" style={{maxWidth: 300}} className="my-2 " onClick={() => navigate(`?l=göteborg&d=${getStartingDate()}`)} >
-                        <img src='src/assets/goteborg.png' />
-                       
+                        <img src='src/assets/goteborg.png' alt='Göteborg'/>
+                        <span className='position-absolute ms-2 overlayName'>Göteborg</span>
                     </Card>
 
                 </Col>
             </Row>
             <Row className='my-2'>
                 <Col sm={6} lg={{span: 4, offset: 2}}>
-                    <Card role="button" style={{maxWidth: 300}} className="my-2 " onClick={() => navigate(`?l=malmö&d=${getStartingDate()}`)} >
-                        <img src='src/assets/malmo.png' />
-                       
+                    <Card role="button" style={{maxWidth: 300}} className="my-2 position-relative" onClick={() => navigate(`?l=malmö&d=${getStartingDate()}`)} >
+                        <img src='src/assets/malmo.png' alt='Malmö'/>
+                        <span className='position-absolute ms-2 overlayName'>Malmö</span>
                     </Card>
 
                 </Col>
                 <Col sm={6} lg={4}>
                     <Card role="button" style={{maxWidth: 300}} className="my-2 " onClick={() => navigate(`?l=visby&d=${getStartingDate()}`)} >
-                        <img src='src/assets/gotland.png' />
-                       
+                        <img src='src/assets/gotland.png' alt='Visby'/>
+                        <span className='position-absolute ms-2 overlayName'>Gotland</span>
                     </Card>
 
                 </Col>

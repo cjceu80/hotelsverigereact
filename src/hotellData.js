@@ -1,5 +1,3 @@
-import React from 'react';
-
 
 //Return all hotells found by query string from request.uri.
 export function getHotels(query){

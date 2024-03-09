@@ -67,11 +67,11 @@ export default function DetailedView() {
                 </Row>
                 <Row>
                     <Col sm={9}>
-                        <img src={selectedImage ? selectedImage : hotel.images[0]} width={"100%"} ></img>
+                        <img src={selectedImage ? selectedImage : hotel.images[0]} width={"100%"} alt={`Bild från ${hotel.name}`} />
                     </Col>
                     <Col className='ps-sm-0'>
                         <Row>
-                             {hotel.images.map((image, index) => <Col className='p-sm-0'xs={6} role='button' key={index}><img src={image} onClick={()=> setSelectedImage(image)} width={"100%"}></img></Col>)}
+                             {hotel.images.map((image, index) => <Col className='p-sm-0'xs={6} role='button' key={index}><img src={image} onClick={()=> setSelectedImage(image)} width={"100%"} alt={`Thumbnailbild från ${hotel.name}`} /></Col>)}
                         </Row>
                     </Col>
                 </Row>

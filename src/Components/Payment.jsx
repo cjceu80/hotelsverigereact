@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, redirect, useLoaderData, NavLink, useNavigate } from 'react-router-dom';
+import { Form, redirect, useLoaderData, useNavigate } from 'react-router-dom';
 import { getHotel } from '../hotellData';
 import RoomReceipt from './RoomReceipt';
 import { handleDates } from './SearchResults';
