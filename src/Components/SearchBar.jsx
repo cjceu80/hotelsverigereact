@@ -31,13 +31,8 @@ export default function SearchBar() {
             return ISOString.slice(0,ISOString.indexOf('T'));
       }
 
-      let mupp = getDateString(new Date());
-      console.log(mupp)
 
     return (
-
-        
-
         <Form className="mb-3"
             onSubmit={handleSubmit}>
             {/* Destination input field */}
