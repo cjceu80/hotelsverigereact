@@ -3,9 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import Attribute from './Attribute.jsx';
 import StarRating from './StarRating.jsx';
 import { Button, Card, Col, Row } from 'react-bootstrap';
+import arrowdown from "../assets/arrowdown_black.png";
 
 
-const SMALL_IMG = {width: "100%"}
+const SMALL_IMG = {width: "100%"};
 
 //Component for the indivdual hotel cards
 export default function SearchResultCard(props) {
@@ -87,7 +88,7 @@ export default function SearchResultCard(props) {
                     
                     <Row>
                         <Col role='button' onClick={() => {const current = isExpanded; setIsExpanded(!current);}} >                          
-                            <img src="src/assets/arrowdown_black.png" width={30} height={10} alt="" />
+                            <img src={arrowdown} width={30} height={10} alt="" />
                         </Col>
                         
                     </Row>
