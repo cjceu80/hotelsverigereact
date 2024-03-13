@@ -2,8 +2,6 @@ import PrintButton from './PrintButton.jsx';
 import { isJSONString } from './SearchResults'
 import { Card, Col, Container, Row } from 'react-bootstrap';
 
-
-
   //Return formated date. Similar to ./SearchBar/handleDates but without the <p> element.
   function handleDates(datesString){
     //test if valid string

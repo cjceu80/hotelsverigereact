@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { Row, Col, Button, Form } from "react-bootstrap";
-
+import magnifyingglass from "../assets/magnifyingglass.png";
 
 //Component for the search bar
 export default function SearchBar() {
@@ -70,7 +70,7 @@ export default function SearchBar() {
             
             {/* Search button */}
             <Col className="d-flex align-items-end px-0">
-                <Button value=" " type="submit"><img src="src/assets/magnifyingglass.png" width={20}/></Button>
+                <Button value=" " type="submit"><img src={magnifyingglass} width={20}/></Button>
             </Col>
             </Row>
         </Form>
@@ -79,34 +79,3 @@ export default function SearchBar() {
     )
 }
 
-
-/*
-
-
-            <Col sm={3}>
-                <label>
-                    Incheck datum
-                </label>
-                <DatePicker
-                    selected={startDate}
-                    onChange={(date) => setStartDate(date)}
-                    selectsStart
-                    startDate={startDate}
-                    endDate={endDate}
-                />
-            </Col>
-
-            <Col sm={3}>
-                <label>
-                    Utcheck datum
-                </label>
-                <DatePicker
-                    selected={endDate}
-                    onChange={(date) => setEndDate(date)}
-                    selectsEnd
-                    startDate={startDate}
-                    endDate={endDate}
-                    minDate={startDate}
-                />
-            </Col>
-*/

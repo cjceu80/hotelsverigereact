@@ -72,7 +72,7 @@ export default function Payment() {
             
           </Col>
         </Row>
-        <Form method="post" className="paymentButtonWrapper">
+        <Form method="post">
           <Button className="standardButton" type="submit">Betala</Button>
         </Form>
       </Card>
