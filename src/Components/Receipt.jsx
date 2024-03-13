@@ -1,22 +1,8 @@
-import { getHotel } from '../hotellData'
 import PrintButton from './PrintButton.jsx';
-import { useLoaderData } from 'react-router-dom';
 import { isJSONString } from './SearchResults'
 import { Card, Col, Container, Row } from 'react-bootstrap';
 
-//Loader to handle params
-export function loader({ params }){
-    if (!params) return;
-  
-    //Create object from parameters to return to component renderer
-   const paymentInfo = { 
-    info: JSON.parse(params.receiptInfo),
-    hotel: getHotel(params.hotelid),
-    dates: params.dates,
-  };
-      
-    return paymentInfo;
-  }
+
 
   //Return formated date. Similar to ./SearchBar/handleDates but without the <p> element.
   function handleDates(datesString){
@@ -56,21 +42,22 @@ export function loader({ params }){
 
 
 //Component to display the receipt after payment
-const Receipt = () => {
-    const loaderData= useLoaderData();
+export default function Receipt() {
+    const checkout = JSON.parse(sessionStorage.getItem("checkout"));
+    const hotel = JSON.parse(sessionStorage.getItem("hotel"));
 
     function getPrice() {
         let price = 0;
     
         //Calculate number of days.
-        const dates = JSON.parse(loaderData.dates);
+        const dates = JSON.parse(checkout.dates);
         let numberOfDays = dates.e-dates.s;
         //If in and out date are the same one day is assumed.
         if (numberOfDays == 0) numberOfDays = 1;
         else numberOfDays = numberOfDays/(1000*3600*24)
         
         //Runs through the hotels from hotel id and use name as key in info to access amount cost and number of rooms.
-        loaderData.hotel.roomoptions.forEach((room)=> price += room.price * parseInt(loaderData.info[room.name]));
+        hotel.roomoptions.forEach((room)=> price += room.price * parseInt(checkout.data[room.name]));
     
         return price * numberOfDays;
       }
@@ -87,23 +74,22 @@ const Receipt = () => {
                     </Col>
                 </Row>
                 <h2>Betalningen för din resa lyckades.</h2>
-                <p>Din vistelse vid {loaderData.hotel.name} i {loaderData.hotel.city} den {handleDates} är nu bekräftad.</p>
+                <p>Din vistelse vid {hotel.name} i {hotel.city} den {handleDates(checkout.dates)} är nu bekräftad.</p>
                 
-                <div className="greetingWrapper">
-                    <div className="receiptImg"></div>
-                    <div className="welcomingMessageBox">
+                <div>
+                    <div>
                         <p>Vi ser fram emot din vistelse!</p>
                     </div>
                 </div>
-                <div className="receiptDetailsWrapper">
-                    <div className="receiptBookingDetails">
+                <div>
+                    <div>
                             <h5>Bokningsdetaljer</h5>
                         <p>Ordernummer: 12KJNDASPO23</p>
-                        <p>Namn: {loaderData.info.firstname} {loaderData.info.lastname}</p>
-                        {getCheckInOutDateString(loaderData.dates)}
+                        <p>Namn: {checkout.data.firstname} {checkout.data.lastname}</p>
+                        {getCheckInOutDateString(checkout.dates)}
                         <p>Pris: {getPrice()} kr</p>
                     </div>
-                    <div className="receiptPolicyDetails">
+                    <div>
                             <h5>Policyer</h5>
                         <p>Checkin tid: 12:00</p>
                         <p>Utcheckning tid: 10:00</p>
@@ -114,5 +100,3 @@ const Receipt = () => {
         </Container>
     );
 };
-
-export default Receipt;

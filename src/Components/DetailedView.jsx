@@ -10,14 +10,16 @@ import { Breadcrumb, Button, Card, Col, Container, Row, Form as BForm } from 're
 //Action for post method
 export async function action({ request, params }) {
     const formData = await request.formData();
-    
-    //Redirect with hotel param and form result object as a string.
-    return redirect(`/hotelid/${params.hotelid}/payment/${JSON.stringify(Object.fromEntries(formData))}/${params.dates}`);
+    let checkout = { data: Object.fromEntries(formData), dates: params.dates};
+  
+    sessionStorage.setItem("checkout", JSON.stringify(checkout));
+    return redirect('/checkout')
   }
 
   //Loads hotel data
 export async function loader({params}){
-    return await { hotelid: getHotel(params.hotelid), dates: params.dates };
+    const data = await getHotel(params.dest + "/" + params.hotelid)
+    return { hotelid: data, dates: params.dates };
 }
 
 //Render the detailed view where form for rooms and personal information is entered to proceed with booking.
@@ -38,6 +40,8 @@ export default function DetailedView() {
 
     //A check to make sure all fields are entered.
     function handleSubmit(e){
+        sessionStorage.setItem("hotel", JSON.stringify(hotel));
+        
         if (formFirstName != "" && formLastName != ""  && formEmail != "" && formAddress != "" && formCode != "" && formCity != "" && formPhone != "")
           return;
         
@@ -46,6 +50,7 @@ export default function DetailedView() {
         //Set state to show error element.
         setErrorState(true);
         }
+
 
     return (
         <Container>
@@ -104,27 +109,27 @@ export default function DetailedView() {
                         {/* Personal information form */}
                         <Col className='p-3 bg-primary text-secondary'>
                             <Container>
-                            <Row>
-                            <BForm.Label>Förnamn</BForm.Label>
-                            <BForm.Control type="text" name="firstname" onChange={(e) => setFormFirstName(e.target.getAttribute("value"))}/>
-                            <BForm.Label>Efternamn</BForm.Label>
-                            <BForm.Control type="text" name="lastname" onChange={(e) => setFormLastName(e.target.getAttribute("value"))}/>
-                            <BForm.Label>Adress</BForm.Label>
-                            <BForm.Control type="text" name="adress" onChange={(e) => setFormAddress(e.target.getAttribute("value"))}/>
-                            <BForm.Label>Stad</BForm.Label>
-                            <BForm.Control type="text" name="code" onChange={(e) => setFormCode(e.target.getAttribute("value"))}/>
-                            <BForm.Label>Postnummer</BForm.Label>
-                            <BForm.Control type="text" name="city" onChange={(e) => setFormCity(e.target.getAttribute("value"))}/>
-                            <BForm.Label>E-post</BForm.Label>
-                            <BForm.Control type="email" name="email" onChange={(e) => setFormEmail(e.target.getAttribute("value"))}/>
-                            <BForm.Label>Telefon</BForm.Label>
-                            <BForm.Control type="text" name="phone" onChange={(e) => setFormPhone(e.target.getAttribute("value"))}/>
-                            <BForm.Label>Övrig information till hotellet:</BForm.Label>
-                            <BForm.Control as="textarea" rows={3} name="info" onChange={(e) => setFormInfo(e.target.getAttribute("value"))}/>
-                            {/* If error due to incomplete form this will be shown. */}
-                            {(errorState) ? <p key="error">Fyll i alla fält för uppgifter</p> : null}
-                            <Button className="bookButton border-secondary my-3" type="submit" onClick={(e) => handleSubmit(e)}>Boka</Button> 
-                            </Row>
+                                <Row>
+                                    <BForm.Label>Förnamn</BForm.Label>
+                                    <BForm.Control type="text" name="firstname" onChange={(e) => setFormFirstName(e.target.getAttribute("value"))}/>
+                                    <BForm.Label>Efternamn</BForm.Label>
+                                    <BForm.Control type="text" name="lastname" onChange={(e) => setFormLastName(e.target.getAttribute("value"))}/>
+                                    <BForm.Label>Adress</BForm.Label>
+                                    <BForm.Control type="text" name="adress" onChange={(e) => setFormAddress(e.target.getAttribute("value"))}/>
+                                    <BForm.Label>Stad</BForm.Label>
+                                    <BForm.Control type="text" name="code" onChange={(e) => setFormCode(e.target.getAttribute("value"))}/>
+                                    <BForm.Label>Postnummer</BForm.Label>
+                                    <BForm.Control type="text" name="city" onChange={(e) => setFormCity(e.target.getAttribute("value"))}/>
+                                    <BForm.Label>E-post</BForm.Label>
+                                    <BForm.Control type="email" name="email" onChange={(e) => setFormEmail(e.target.getAttribute("value"))}/>
+                                    <BForm.Label>Telefon</BForm.Label>
+                                    <BForm.Control type="text" name="phone" onChange={(e) => setFormPhone(e.target.getAttribute("value"))}/>
+                                    <BForm.Label>Övrig information till hotellet:</BForm.Label>
+                                    <BForm.Control as="textarea" rows={3} name="info" onChange={(e) => setFormInfo(e.target.getAttribute("value"))}/>
+                                    {/* If error due to incomplete form this will be shown. */}
+                                    {(errorState) ? <p key="error">Fyll i alla fält för uppgifter</p> : null}
+                                    <Button className="bookButton border-secondary my-3" type="submit" onClick={(e) => handleSubmit(e)}>Boka</Button> 
+                                </Row>
                             </Container>
                         </Col>
                     </Row>

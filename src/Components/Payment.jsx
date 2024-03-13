@@ -1,48 +1,33 @@
 import React from "react";
-import { Form, redirect, useLoaderData, useNavigate } from 'react-router-dom';
-import { getHotel } from '../hotellData';
+import { Form, redirect, useNavigate } from 'react-router-dom';
 import RoomReceipt from './RoomReceipt';
 import { handleDates } from './SearchResults';
 import { Breadcrumb, Button, Card, Col, Container, Row } from "react-bootstrap";
  
 //Submit action to continue to receipt if payment is accepted
 export function action( { params }){
-  if (!params) return;
 
-  return redirect(`/hotelid/${params.hotelid}/receipt/${params.paymentInfo}/${params.dates}`);
-}
-
-//Loader to handle params
-export function loader({ params }){
-  if (!params) return;
-
-  //Create object from parameters to return to component renderer
- const paymentInfo = { 
-  info: JSON.parse(params.paymentInfo),
-  hotel: getHotel(params.hotelid),
-  dates: params.dates,
-};
-    
-  return paymentInfo;
+  return redirect(`/receipt`);
 }
 
 //Render the payment confirmation view
 export default function Payment() {
-  const loaderData= useLoaderData();
-  const navigate = useNavigate();
+    const checkout = JSON.parse(sessionStorage.getItem("checkout"));
+    const hotel = JSON.parse(sessionStorage.getItem("hotel"));
+    const navigate = useNavigate();
 
   function getPrice() {
     let price = 0;
 
     //Calculate number of days.
-    const dates = JSON.parse(loaderData.dates);
+    const dates = JSON.parse(checkout.dates);
     let numberOfDays = dates.e-dates.s;
     //If in and out date are the same one day is assumed.
     if (numberOfDays == 0) numberOfDays = 1;
     else numberOfDays = numberOfDays/(1000*3600*24)
     
     //Runs through the hotels from hotel id and use name as key in info to access amount cost and number of rooms.
-    loaderData.hotel.roomoptions.forEach((room)=> price += room.price * parseInt(loaderData.info[room.name]));
+    hotel.roomoptions.forEach((room)=> price += room.price * parseInt(checkout.data[room.name]));
 
     return price * numberOfDays;
   }
@@ -50,7 +35,7 @@ export default function Payment() {
   function getTotalBeds() {
     let rooms = 0;
     //Runs through the hotels from hotel id and use name as key in info to access amount of rooms.
-    loaderData.hotel.roomoptions.forEach((room)=> rooms += parseInt(loaderData.info[room.name]))
+    hotel.roomoptions.forEach((room)=> rooms += parseInt(checkout.data[room.name]))
 
     return rooms;
   }
@@ -67,23 +52,23 @@ export default function Payment() {
         
         <Row>
           <Col>
-            <p>Förnamn: {loaderData.info.firstname}</p> 
-            <p>Efternamn: {loaderData.info.lastname}</p>
-            <p>Adress: {loaderData.info.adress}</p>
-            <p>Stad: {loaderData.info.city}</p>
-            <p>Postnummer: {loaderData.info.code}</p>
-            <p>E-post: {loaderData.info.email}</p>
-            <p>Telefon: {loaderData.info.phone}</p>
+            <p>Förnamn: {checkout.data.firstname}</p> 
+            <p>Efternamn: {checkout.data.lastname}</p>
+            <p>Adress: {checkout.data.adress}</p>
+            <p>Stad: {checkout.data.city}</p>
+            <p>Postnummer: {checkout.data.code}</p>
+            <p>E-post: {checkout.data.email}</p>
+            <p>Telefon: {checkout.data.phone}</p>
           </Col>
           <Col>
-            <p>Hotel: {loaderData.hotel.name}</p> 
+            <p>Hotel: {hotel.name}</p> 
             <p>Rum: {getTotalBeds()} st </p>
               {/* List hotel rooms */}
-            {loaderData.hotel.roomoptions.map((room)=><RoomReceipt hotelRoom={room} bookingInfo={loaderData.info} key={room.name}/>)}
+            {hotel.roomoptions.map((room)=><RoomReceipt hotelRoom={room} bookingInfo={checkout.data} key={room.name}/>)}
             
-            <p>Incheckning: {handleDates(loaderData.dates)[0]}</p>
-            <p>Utcheckning: {handleDates(loaderData.dates)[1]}</p>
-            <p>Pris: {getPrice(loaderData.dates)} kr</p>
+            <p>Incheckning: {handleDates(checkout.dates)[0]}</p>
+            <p>Utcheckning: {handleDates(checkout.dates)[1]}</p>
+            <p>Pris: {getPrice(checkout.dates)} kr</p>
             
           </Col>
         </Row>

@@ -5,8 +5,8 @@ import App from './App';
 import "./App.scss"
 import SearchIndex, { loader as defaultLoader } from './Components/SearchIndex';
 import DetailedView, { loader as detailLoader, action as detailAction } from './Components/DetailedView';
-import Payment, {loader as paymentLoader, action as paymentAction } from './Components/Payment';
-import Receipt, {loader as receiptLoader} from './Components/Receipt';
+import Payment, { action as paymentAction } from './Components/Payment';
+import Receipt from './Components/Receipt';
 import ErrorPage from './Components/ErrorPage';
 
 const router = createBrowserRouter([
@@ -20,22 +20,20 @@ const router = createBrowserRouter([
           loader: defaultLoader,
         },
         {
-          path: "hotelid/:hotelid/:dates",
+          path: "hotelid/:dest/:hotelid/:dates",
           element: <DetailedView />,
           loader: detailLoader,
           action: detailAction
         },
         {
-          path: "hotelid/:hotelid/payment/:paymentInfo/:dates",
-          element: <Payment />,
-          loader: paymentLoader,
-          action: paymentAction
-        },
-        {
-          path: "hotelid/:hotelid/receipt/:receiptInfo/:dates",
-          element: <Receipt />,
-          loader: receiptLoader,
-        }
+            path: "checkout/",
+            element: <Payment />,
+            action: paymentAction
+          },
+          {
+            path: "receipt/",
+            element: <Receipt />,
+          },
       ]
     },
   ])
