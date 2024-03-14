@@ -66,7 +66,7 @@ export default function SearchResultCard(props) {
                                         </Row>
                                         <Row>
                                             <Col>
-                                                <Button onClick={() => navigate(`/hotelid/${hotel.city.toLowerCase()}/${hotel.id}/${props.dates}`)}>Gå till bokning</Button>
+                                                <Button onClick={() => navigate(`/hotel/hotelid/${hotel.city.toLowerCase()}/${hotel.id}/${props.dates}`)}>Gå till bokning</Button>
                                             </Col>
                                         </Row>
                                 </Col>
