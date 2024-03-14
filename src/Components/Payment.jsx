@@ -7,7 +7,7 @@ import { Breadcrumb, Button, Card, Col, Container, Row } from "react-bootstrap";
 //Submit action to continue to receipt if payment is accepted
 export function action( { params }){
 
-  return redirect(`/receipt`);
+  return redirect(`/hotel/receipt`);
 }
 
 //Render the payment confirmation view
