@@ -4,7 +4,7 @@ import { Col, Container, Nav, Row } from 'react-bootstrap';
 //Render page footer
 export default function Footer() {
     return (
-        <div className='bg-primary'>
+        <div className='menu-background'>
         <Container className='mt-3 pt-3' style={{color: "whitesmoke"}}>
             <Row>
                 <Col>

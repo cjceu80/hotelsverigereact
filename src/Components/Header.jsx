@@ -8,8 +8,8 @@ import eng from "../assets/Flag_of_the_United_Kingdom.png"
 export default function Header() {
 
     return (
-        <Navbar className='bg-primary mb-5' expand="sm" >
-            <Container>
+        <Navbar className='menu-background mb-5' expand="sm" >
+            <Container >
                 <Navbar.Brand href="/">
                     <img className="d-inline-block align-top"
                         src={logo}
@@ -21,9 +21,9 @@ export default function Header() {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav" >
                     <Nav>
-                    <Nav.Link className='text-secondary' href="">Sök hotell</Nav.Link>
-                    <Nav.Link className='text-secondary' href="">Populära resmål</Nav.Link>
-                    <Nav.Link className='text-secondary' href="">Kontakta oss</Nav.Link>
+                    <Nav.Link className='' style={{color: "whitesmoke"}} href="">Sök hotell</Nav.Link>
+                    <Nav.Link className='menu-text' href="">Populära resmål</Nav.Link>
+                    <Nav.Link className='menu-text' href="">Kontakta oss</Nav.Link>
                     </Nav>
                     <Nav className="justify-content-end flex-grow-1 pe-3" id="basic-nav-dropdown" >
                         <NavDropdown id='nav-dropdown' title="Språk" align='end'>

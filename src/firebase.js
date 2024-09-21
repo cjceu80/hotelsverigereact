@@ -6,13 +6,13 @@ import {getDatabase} from 'firebase/database';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyBeCs3r5Y0E4bdj5rS1aX0lkRLbmp4EXek",
-    authDomain: "hotelsverige.firebaseapp.com",
-    databaseURL: "https://hotelsverige-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "hotelsverige",
-    storageBucket: "hotelsverige.appspot.com",
-    messagingSenderId: "891878740866",
-    appId: "1:891878740866:web:542c1e3f662d544ab3b59b"
+    apiKey: import.meta.env.VITE_API_KEY,
+    authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+    databaseURL: import.meta.env.VITE_DATABASE_URL,
+    projectId: import.meta.env.VITE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_APP_ID
   };
 
 // Initialize Firebase
