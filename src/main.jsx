@@ -11,7 +11,7 @@ import ErrorPage from './Components/ErrorPage';
 
 const router = createBrowserRouter([
     {
-      path: "/hotel",
+      path: "/",
       element: <App />,
       errorElement: <ErrorPage />,
       children: [

@@ -13,7 +13,7 @@ export async function action({ request, params }) {
     let checkout = { data: Object.fromEntries(formData), dates: params.dates};
   
     sessionStorage.setItem("checkout", JSON.stringify(checkout));
-    return redirect('/hotel/checkout')
+    return redirect('/checkout')
   }
 
   //Loads hotel data

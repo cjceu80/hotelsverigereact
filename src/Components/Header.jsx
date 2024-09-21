@@ -10,7 +10,7 @@ export default function Header() {
     return (
         <Navbar className='bg-primary mb-5' expand="sm" >
             <Container>
-                <Navbar.Brand href="/hotel/">
+                <Navbar.Brand href="/">
                     <img className="d-inline-block align-top"
                         src={logo}
                         width="250"
