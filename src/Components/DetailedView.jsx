@@ -107,7 +107,7 @@ export default function DetailedView() {
                         </Col>
 
                         {/* Personal information form */}
-                        <Col className='p-3 bg-primary text-secondary'>
+                        <Col className='p-3 menu-background text-light'>
                             <Container>
                                 <Row>
                                     <BForm.Label>Förnamn</BForm.Label>
