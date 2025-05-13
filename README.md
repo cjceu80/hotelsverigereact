@@ -1,8 +1,3 @@
-# React + Vite
+Based on a group project with the goal to create a visual design of a website for searching and booking hotels, where I acted as lead programmer. Later I have remade the project using bootstrap instead of a large css.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Many of the menu alternatives are not implemented as the assignment was to implement a frontend for searching and booking. Hotel information is provided by a firebase database and the booking is only fictional without any backend.
