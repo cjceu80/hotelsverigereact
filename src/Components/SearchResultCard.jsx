@@ -101,5 +101,5 @@ export default function SearchResultCard(props) {
 
 SearchResultCard.propTypes = {
     hotel: PropTypes.object.isRequired,
-    dates: PropTypes.object.isRequired
+    dates: PropTypes.string.isRequired
 }

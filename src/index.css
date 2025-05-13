@@ -4,6 +4,10 @@
     background-color: #F3F3F3;
   }
 
+.btn-primary{
+  background-color: #002642 !important;
+}
+
 .price {
   margin-bottom: 0;
   color: #840032;
