@@ -6,14 +6,20 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
  base: "hotel/",
  plugins: [react(), splitVendorChunkPlugin()],
- preview: {
-  port: 8080,
-  strictPort: true,
- },
- server: {
-  port: 8080,
-  strictPort: true,
-  host: true,
-  origin: "http://0.0.0.0:8080",
- },
+ build: {
+  rollupOptions: {
+    output: {
+      manualChunks(id) {
+        // creating a chunk to react routes deps. Reducing the vendor chunk size
+        if (
+
+          id.includes('firebase')
+        ) {
+          return '@firebase';
+        }
+
+      },
+    },
+  },
+},
 });
