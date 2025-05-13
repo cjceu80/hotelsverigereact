@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import Attribute from './Attribute.jsx';
 import StarRating from './StarRating.jsx';
@@ -66,7 +67,7 @@ export default function SearchResultCard(props) {
                                         </Row>
                                         <Row>
                                             <Col>
-                                                <Button onClick={() => navigate(`/hotelid/${hotel.city.toLowerCase()}/${hotel.id}/${props.dates}`)}>Gå till bokning</Button>
+                                                <Button onClick={() => navigate(`/hotel/hotelid/${hotel.city.toLowerCase()}/${hotel.id}/${props.dates}`)}>Gå till bokning</Button>
                                             </Col>
                                         </Row>
                                 </Col>
@@ -96,4 +97,9 @@ export default function SearchResultCard(props) {
             </Col>
         </Row>   
     );
-};
+}
+
+SearchResultCard.propTypes = {
+    hotel: PropTypes.object.isRequired,
+    dates: PropTypes.object.isRequired
+}

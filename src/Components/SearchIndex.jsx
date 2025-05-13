@@ -1,4 +1,3 @@
-import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { getHotels } from '../hotellData.js';
 import SearchBar from './SearchBar.jsx';

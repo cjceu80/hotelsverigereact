@@ -1,13 +1,12 @@
-import React from "react";
 import { Form, redirect, useNavigate } from 'react-router-dom';
 import RoomReceipt from './RoomReceipt';
 import { handleDates } from './SearchResults';
 import { Breadcrumb, Button, Card, Col, Container, Row } from "react-bootstrap";
  
 //Submit action to continue to receipt if payment is accepted
-export function action( { params }){
+export function action(){
 
-  return redirect(`/receipt`);
+  return redirect(`hotel/receipt`);
 }
 
 //Render the payment confirmation view
@@ -79,4 +78,4 @@ export default function Payment() {
       </Container>
     
   )
-};
+}

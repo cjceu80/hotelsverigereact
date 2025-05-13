@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 
 //Render a room name and count
 export default function RoomReceipt(props) {
@@ -11,4 +11,9 @@ export default function RoomReceipt(props) {
     return (
         <p className='ps-2'>{props.hotelRoom.name} x{roomCount} </p>
     )
+}
+
+RoomReceipt.propTypes = {
+    bookingInfo: PropTypes.object.isRequired,
+    hotelRoom: PropTypes.object.isRequired
 }

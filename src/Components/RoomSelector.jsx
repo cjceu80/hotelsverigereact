@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
+import PropTypes from 'prop-types';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import minussign from "../assets/minussign.svg";
 import plussign from "../assets/plussign.svg";
@@ -30,3 +31,7 @@ export default function RoomSelector(props) {
         </Row>
     </Container>
   )}
+
+  RoomSelector.propTypes = {
+      room: PropTypes.object.isRequired
+  }

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import logo from "../assets/logo.png"
 import swe from "../assets/Flag_of_Sweden.png"
@@ -35,6 +34,6 @@ export default function Header() {
             </Container>
         </Navbar>
     );
-};
+}
 
   

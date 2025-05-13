@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { Row, Col, Button, Form } from "react-bootstrap";
 import magnifyingglass from "../assets/magnifyingglass.png";

@@ -1,4 +1,5 @@
 import { Col } from "react-bootstrap";
+import PropTypes from 'prop-types';
 import greenplopp from '../assets/greenplopp.png';
 
 
@@ -10,4 +11,10 @@ export default function Attribute(props) {
             <span> {props.roomFeature}</span>
         </Col>
     );
-};
+}
+
+Attribute.propTypes = {
+    xs: PropTypes.number.isRequired,
+    sm: PropTypes.number.isRequired,
+    roomFeature: PropTypes.string.isRequired
+}

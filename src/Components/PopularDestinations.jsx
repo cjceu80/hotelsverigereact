@@ -12,7 +12,7 @@ function getStartingDate(){
     const date = new Date();
     const dateObject = {s: date.getTime(), e: date.getTime(), }
     return JSON.stringify(dateObject);
-};
+}
 
 //Render a view with a searchbar and 4 popular desitination cities
 export default function PopularDestinations() {
@@ -57,4 +57,4 @@ export default function PopularDestinations() {
 
         </Container>
     );
-};
+}

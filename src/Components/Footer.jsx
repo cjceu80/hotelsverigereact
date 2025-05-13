@@ -1,4 +1,3 @@
-import React from 'react';
 import { Col, Container, Nav, Row } from 'react-bootstrap';
 
 //Render page footer

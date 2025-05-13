@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 
 import SearchResultCard from './SearchResultCard';
 
@@ -37,4 +37,8 @@ export default function SearchResults(props) {
             {hotels.hotels.map((hotel) => <SearchResultCard hotel={hotel} dates={hotels.dates} key={hotel.id} />)}
         </>
     );
+}
+
+SearchResults.propTypes = {
+    hotels: PropTypes.object.isRequired
 }
