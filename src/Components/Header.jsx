@@ -21,8 +21,8 @@ export default function Header() {
                 <Navbar.Collapse id="basic-navbar-nav" >
                     <Nav>
                     <Nav.Link className='' style={{color: "whitesmoke"}} href="">Sök hotell</Nav.Link>
-                    <Nav.Link className='menu-text' href="">Populära resmål</Nav.Link>
-                    <Nav.Link className='menu-text' href="">Kontakta oss</Nav.Link>
+                    <Nav.Link className='menu-text' style={{color: "whitesmoke"}} href="">Populära resmål</Nav.Link>
+                    <Nav.Link className='menu-text' style={{color: "whitesmoke"}} href="">Kontakta oss</Nav.Link>
                     </Nav>
                     <Nav className="justify-content-end flex-grow-1 pe-3" id="basic-nav-dropdown" >
                         <NavDropdown id='nav-dropdown' title="Språk" align='end'>
